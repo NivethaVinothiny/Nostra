@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nostra - Collections</title>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVBAR SECTION -->
+    <header class="navbar">
+        <button type="button" class="menu-toggle-btn" aria-label="Open navigation" aria-controls="mobile-sidebar" aria-expanded="false" onclick="toggleSidebar(true)">☰</button>
+        <div class="nav-logo">
+            <a href="index.html"><span class="brand-mark" aria-hidden="true"><svg class="brand-dress" viewBox="0 0 24 24" focusable="false"><path d="M9 2h6l1.2 5 3.4 2.8-2 3.6-2.1-1L17 22H7l1.5-9.6-2.1 1-2-3.6L7.8 7 9 2z"/></svg></span>Nostra</a>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="collections.html" class="active">Collections</a>
+            <a href="cart.html">Cart</a>
+            <a href="orders.html">Orders</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+        <div class="nav-actions">
+            <div class="search-bar">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="search-input" placeholder="Search 30+ products, brands..." onkeyup="searchProducts()">
+            </div>
+            <div class="icon-actions">
+                <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i><span id="bag-count">Bag</span></a>
+            </div>
+        </div>
+    </header>
+    <aside class="mobile-sidebar" id="mobile-sidebar" aria-hidden="true">
+        <div class="sidebar-header">
+            <h3>Nostra</h3>
+            <button type="button" class="close-sidebar-btn" aria-label="Close navigation" onclick="toggleSidebar(false)">&times;</button>
+        </div>
+        <nav class="sidebar-links">
+            <a href="index.html"><i class="fa-solid fa-house"></i>Home</a>
+            <a href="collections.html"><i class="fa-solid fa-layer-group"></i>Collections</a>
+            <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i>Cart</a>
+            <a href="orders.html"><i class="fa-solid fa-box"></i>Orders</a>
+            <a href="contact.html"><i class="fa-solid fa-envelope"></i>Contact Us</a>
+        </nav>
+    </aside>
+    <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleSidebar(false)" aria-hidden="true"></div>
+
+    <!-- COLLECTIONS HEADER & CENTERED FILTERS -->
+    <section class="section-container">
+        <h2 class="section-title" style="text-align: center;">OUR COLLECTIONS</h2>
+        
+        <!-- Centered Category Filter Buttons -->
+        <div class="filter-container center-filters">
+            <button class="filter-btn active" onclick="filterCategory('all', this)">All Products</button>
+            <button class="filter-btn" onclick="filterCategory('shirt', this)">Shirts</button>
+            <button class="filter-btn" onclick="filterCategory('dress', this)">Dresses</button>
+            <button class="filter-btn" onclick="filterCategory('shoes', this)">Footwear</button>
+            <button class="filter-btn" onclick="filterCategory('watch', this)">Watches</button>
+        </div>
+
+        <!-- PRODUCTS GRID (30 Products) -->
+        <div class="product-grid" id="product-grid">
+            
+            <!-- Shirts (1 to 8) -->
+            <div class="product-card" data-category="shirt" data-name="solid cotton casual shirt">
+                <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=400&q=80" alt="Shirt">
+                <div class="product-details">
+                    <h3>Nostra Men</h3>
+                    <p>Solid Cotton Casual Shirt</p>
+                    <span class="price">Rs. 799 <del>Rs. 1,499</del></span>
+                    <button class="shop-now-btn add-bag-btn" onclick="addToCart('Nostra Men - Solid Cotton Casual Shirt', 799, 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=400&q=80')">ADD TO BAG</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="shirt" data-name="mens formal blue shirt">
+                <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=400&q=80" alt="Formal Shirt">
+                <div class="product-details">
+                    <h3>NOSTRA FORMALS</h3>
+                    <p>Slim Fit Formal Blue Shirt</p>
+                    <span class="price">Rs. 999 <del>Rs. 1,899</del></span>
+                    <button class="shop-now-btn add-bag-btn" onclick="addToCart('NOSTRA FORMALS - Blue Shirt', 999, 'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=400&q=80')">ADD TO BAG</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="shirt" data-name="linen summer white shirt">
+                <img src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=400&q=80" alt="Linen Shirt">
+                <div class="product-details">
+                    <h3>ROADSTER</h3>
+                    <p>Linen Summer White Shirt</p>
+                    <span class="price">Rs. 899 <del>Rs. 1,699</del></span>
+                    <button class="shop-now-btn add-bag-btn" onclick="addToCart('ROADSTER - Linen White Shirt', 899, 'https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=400&q=80')">ADD TO BAG</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="shirt" data-name="checked casual red shirt">
+                <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=400&q=80" alt="Checked Shirt">
+                <div class="product-details">
+                    <h3>HIGHLANDER</h3>
+                    <p>Checked Casual Red Shirt</p>
+                    <span class="price">Rs. 749 <del>Rs. 1,299</del></span>
+                    <button class="shop-now-btn add-bag-btn" onclick="addToCart('HIGHLANDER - Checked Red Shirt', 749, 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=400&q=80')">ADD TO BAG</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="shirt" data-name="denim indigo shirt">
+                <img src="https://images.unsplash.com/photo-1578932750294-f5075e85f44a?auto=format&fit=crop&w=400&q=80" alt="Denim Shirt">
+                <div class="product-details">
+                    <h3>LEVI'S</h3>
+                    <p>Classic Denim Indigo Shirt</p>
+                    <span class="price">Rs. 1,499 <del>Rs. 2,999</del></span>
+                    <button class="shop-now-btn add-bag-btn" onclick="addToCart('LEVIS - Denim Indigo Shirt', 1499, 'https://images.unsplash.com/photo-1578932750294-f5075e85f44a?auto=format&fit=crop&w=400&q=80')">ADD TO BAG</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="shirt" data-name="party wear black shirt">
+                <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=400&q=80" alt="Black Shirt">
+                <div class="product-details">
+                    <h3>KILLER</h3>
+                    <p>Party Wear Black Shirt</p>
+                    <span class="price">Rs. 1,199 <del>Rs. 2,199</del></span>
+                    <button class="shop-now-btn add-bag-btn" onclick="addToCart('KILLER - Party Black Shirt', 1199, 'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=400&q=80')">ADD TO BAG</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="shirt" data-name="striped casual green shirt">
+                <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=400&q=80" alt="Green Shirt">
+                <div class="product-details">
+                    <h3>ALLEN SOLLY</h3>
+                    <p>Striped Casual Green Shirt</p>
+                    <span class="price">Rs. 1,099 <del>Rs. 1,999</del></span>
+                    <button class="shop-now-btn add-bag-btn" onclick="addToCart('ALLEN SOLLY - Striped Green Shirt', 1099, 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=400&q=80')">ADD TO BAG</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="shirt" data-name="oxford cotton yellow shirt">
+                <img src="https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?auto=format&fit=crop&w=400&q=80" alt="Yellow Shirt">
+                <div class="product-details">
+                    <h3>PETER ENGLAND</h3>
+                    <p>Oxford Cotton Yellow Shirt</p>
+                    <span class="price">Rs. 949 <del>Rs. 1,799</del></span>
+                    <button class="shop-now-btn add-bag-btn" onclick="addToCart('PETER ENGLAND - Oxford Yellow Shirt', 949, 'https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?auto=format&fit=crop&w=400&q=80')">ADD TO BAG</button>
+                </div>
+            </div>
+
+            <!-- Dresses (9 to 16) -->
+            <div class="product-card" data-category="dress" data-name="floral printed maxi dress">
+                <img src="https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&w=400&q=80" alt="Dress">
+                <div class="product-details">
+                    <h3>HER NOSTRA</h3>
+                    <p>Floral Printed Maxi Dress</p>
+                    <span class="price">Rs. 1,299 <del>Rs. 2,499</del></span>
+                    <button class="shop-now-btn add-bag-btn" onclick="addToCart('HER NOSTRA - Floral Maxi Dress', 1299, 'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&w=400&q=80')">ADD TO BAG</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="dress" data-name="womens evening party dress">
+                <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=400&q=80" alt="Party Dress">
+                <div class="product-details">
+                    <h3>HER NOSTRA</h3>
+                    <p>Evening Party Velvet Dress</p>
+                    <span class="price">Rs. 2,199 <del>Rs. 4,500</del></span>
+                    <button class="shop-now-btn add-bag-btn" onclick="addToCart('HER NOSTRA - Velvet Dress', 2199, 'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=400&q=80')">ADD TO BAG</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="dress" data-name="boho summer cotton dress">
+                <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&w=400&q=80" alt="Boho Dress">
+                <div class="product-details">
+                    <h3>VERO MODA</h3>
+                    <p>Boho Summer Cotton Dress</p>
+                    <span class="price">Rs. 1,599 <del>Rs. 3,199</del></span>
+                    <button class="shop-now-btn add-bag-btn" onclick="addToCart('VERO MODA - Boho Cotton Dress', 1599, 'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&w=400&q=80')">ADD TO BAG</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="dress" data-name="elegant silk ethnic kurti">
+                <img src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=400&q=80" alt="Ethnic Dress">
+                <div class="product-details">
+                    <h3>BIBA</h3>
+                    <p>Elegant Silk Ethnic Kurti</p>
+                    <span class="price">Rs. 1,499 <del>Rs. 2,999</del></span>
+                    <button class="shop-now-btn add-bag-btn" onclick="addToCart('BIBA - Silk Ethnic Kurti', 1499, 'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=400&q=80')">ADD TO BAG</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="dress" data-name="casual midi wrap dress">
+                <img src="https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=400&q=80" alt="Wrap Dress">
+                <div class="product-details">
+                    <h3>AND</h3>
+                    <p>Casual Midi Wrap Dress</p>
+                    <span class="price">Rs. 1,799 <del>Rs. 3,499</del></span>
+                    <button class="shop-now-btn add-bag-btn" onclick="addToCart('AND - Casual Midi Dress', 1799, 'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=400&q=80')">ADD TO BAG</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="dress" data-name="chic cocktail evening gown">
+                <img src="https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=400&q=80" alt="Gown">
+                <div class="product-details">
+                    <h3>ZARA</h3>
+                    <p>Chic Cocktail Evening Gown</p>
+                    <span class="price">Rs. 2,899 <del>Rs. 5,999</del></span>
+                    <button class="shop-now-btn add-bag-btn" onclick="addToCart('ZARA - Evening Gown', 2899, 'https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=400&q=80')">ADD TO BAG</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="dress" data-name="casual polka dot dress">
+                <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=400&q=80" alt="Polka Dress">
+                <div class="product-details">
+                    <h3>MANGO</h3>
+                    <p>Casual Polka Dot Dress</p>
+                    <span class="price">Rs. 1,399 <del>Rs. 2,799</del></span>
+                    <button class="shop-now-btn add-bag-btn" onclick="addToCart('MANGO - Polka Dot Dress', 1399, 'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=400&q=80')">ADD TO BAG</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="dress" data-name="traditional printed lehenga">
+                <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=400&q=80" alt="Lehenga">
+                <div class="product-details">
+                    <h3>KALKI</h3>
+                    <p>Traditional Printed Lehenga</p>
+                    <span class="price">Rs. 3,499 <del>Rs. 7,999</del></span>
+                    <button class="shop-now-btn add-bag-btn" onclick="addToCart('KALKI - Traditional Lehenga', 3499, 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=400&q=80')">ADD TO BAG</button>
+                </div>
+            </div>
+
+            <!-- Footwear (17 to 24) -->
+            <div class="product-card" data-category="shoes" data-name="active running sports shoes">
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=400&q=80" alt="Shoes">
+                <div class="product-details">
+                    <h3>ROSTER</h3>
+                    <p>Active Running Sports Shoes</p>
+                    <span class="price">Rs. 1,999 <del>Rs. 3,999</del></span>
+                    <button class="shop-now-btn add-bag-btn" onclick="addToCart('ROSTER - Active Sports Shoes', 1999, 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=400&q=80')">ADD TO BAG</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="shoes" data-name="casual white sneakers">
+                <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=400&q=80" alt="Sneakers">
+                <div class="product-details">
+                    <h3>ROADSTER</h3>
+                    <p>Casual White Sneakers</p>
+                    <span class="price">Rs. 1,299 <del>Rs. 2,599</del></span>
+                    <button class="shop-now-btn add-bag-btn" onclick="addToCart('ROADSTER - Casual Sneakers', 1299, 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=400&q=80')">ADD TO BAG</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="shoes" data-name="pro marathon training shoes">
+                <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=400&q=80" alt="Training Shoes">
+                <div class="product-details">
+                    <h3>NIKE</h3>
+                    <p>Pro Marathon Training Shoes</p>
+                    <span class="price">Rs. 3,999 <del>Rs. 7,999</del></span>
+                    <button class="shop-now-btn add-bag-btn" onclick="addToCart('NIKE - Marathon Shoes', 3999, 'https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=400&q=80')">ADD TO BAG</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="shoes" data-name="leather formal derby shoes">
+                <img src="https://images.unsplash.com/photo-1495555961986-6d4c1ecb7be3?auto=format&fit=crop&w=400&q=80" alt="Formal Shoes">
+                <div class="product-details">
+                    <h3>HUSH PUPPIES</h3>
+                    <p>Leather Formal Derby Shoes</p>
+                    <span class="price">Rs. 2,799 <del>Rs. 5,499</del></span>
+                    <button class="shop-now-btn add-bag-btn" onclick="addToCart('HUSH PUPPIES - Formal Derby Shoes', 2799, 'https://images.unsplash.com/photo-1495555961986-6d4c1ecb7be3?auto=format&fit=crop&w=400&q=80')">ADD TO BAG</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="shoes" data-name="streetwear high-top sneakers">
+                <img src="https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?auto=format&fit=crop&w=400&q=80" alt="High Tops">
+                <div class="product-details">
+                    <h3>PUMA</h3>
+                    <p>Streetwear High-Top Sneakers</p>
+                    <span class="price">Rs. 2,499 <del>Rs. 4,999</del></span>
+                    <button class="shop-now-btn add-bag-btn" onclick="addToCart('PUMA - High-Top Sneakers', 2499, 'https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?auto=format&fit=crop&w=400&q=80')">ADD TO BAG</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="shoes" data-name="womens comfy walking shoes">
+                <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=400&q=80" alt="Walking Shoes">
+                <div class="product-details">
+                    <h3>SKECHERS</h3>
+                    <p>Womens Comfy Walking Shoes</p>
+                    <span class="price">Rs. 2,999 <del>Rs. 5,999</del></span>
+                    <button class="shop-now-btn add-bag-btn" onclick="addToCart('SKECHERS - Walking Shoes', 2999, 'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=400&q=80')">ADD TO BAG</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="shoes" data-name="casual canvas slip-ons">
+                <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=400&q=80" alt="Slip-ons">
+                <div class="product-details">
+                    <h3>VANS</h3>
+                    <p>Casual Canvas Slip-ons</p>
+                    <span class="price">Rs. 1,799 <del>Rs. 3,499</del></span>
+                    <button class="shop-now-btn add-bag-btn" onclick="addToCart('VANS - Canvas Slip-ons', 1799, 'https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=400&q=80')">ADD TO BAG</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="shoes" data-name="outdoor trekking boots">
+                <img src="https://images.unsplash.com/photo-1520639888713-7851133b1ed0?auto=format&fit=crop&w=400&q=80" alt="Boots">
+                <div class="product-details">
+                    <h3>WOODLAND</h3>
+                    <p>Outdoor Trekking Boots</p>
+                    <span class="price">Rs. 4,499 <del>Rs. 8,999</del></span>
+                    <button class="shop-now-btn add-bag-btn" onclick="addToCart('WOODLAND - Trekking Boots', 4499, 'https://images.unsplash.com/photo-1520639888713-7851133b1ed0?auto=format&fit=crop&w=400&q=80')">ADD TO BAG</button>
+                </div>
+            </div>
+
+            <!-- Watches (25 to 30) -->
+            <div class="product-card" data-category="watch" data-name="chronograph analog watch">
+                <img src="https://images.unsplash.com/photo-1548883354-7622d03aca27?auto=format&fit=crop&w=400&q=80" alt="Watch">
+                <div class="product-details">
+                    <h3>TIMEWEAR</h3>
+                    <p>Chronograph Analog Watch</p>
+                    <span class="price">Rs. 1,499 <del>Rs. 2,999</del></span>
+                    <button class="shop-now-btn add-bag-btn" onclick="addToCart('TIMEWEAR - Analog Watch', 1499, 'https://images.unsplash.com/photo-1548883354-7622d03aca27?auto=format&fit=crop&w=400&q=80')">ADD TO BAG</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="watch" data-name="luxury black leather watch">
+                <img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=400&q=80" alt="Leather Watch">
+                <div class="product-details">
+                    <h3>FASTRACK</h3>
+                    <p>Luxury Black Leather Watch</p>
+                    <span class="price">Rs. 2,499 <del>Rs. 4,999</del></span>
+                    <button class="shop-now-btn add-bag-btn" onclick="addToCart('FASTRACK - Leather Watch', 2499, 'https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=400&q=80')">ADD TO BAG</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="watch" data-name="smart fitness tracker watch">
+                <img src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=400&q=80" alt="Smartwatch">
+                <div class="product-details">
+                    <h3>BOAT</h3>
+                    <p>Smart Fitness Tracker Watch</p>
+                    <span class="price">Rs. 1,999 <del>Rs. 3,999</del></span>
+                    <button class="shop-now-btn add-bag-btn" onclick="addToCart('BOAT - Smartwatch', 1999, 'https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=400&q=80')">ADD TO BAG</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="watch" data-name="classic stainless steel watch">
+                <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=400&q=80" alt="Steel Watch">
+                <div class="product-details">
+                    <h3>TITAN</h3>
+                    <p>Classic Stainless Steel Watch</p>
+                    <span class="price">Rs. 3,299 <del>Rs. 6,499</del></span>
+                    <button class="shop-now-btn add-bag-btn" onclick="addToCart('TITAN - Stainless Steel Watch', 3299, 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=400&q=80')">ADD TO BAG</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="watch" data-name="luxury gold accent watch">
+                <img src="https://images.unsplash.com/photo-1533139502658-0198f920d8e8?auto=format&fit=crop&w=400&q=80" alt="Gold Watch">
+                <div class="product-details">
+                    <h3>FOSSIL</h3>
+                    <p>Luxury Gold Accent Watch</p>
+                    <span class="price">Rs. 5,999 <del>Rs. 11,999</del></span>
+                    <button class="shop-now-btn add-bag-btn" onclick="addToCart('FOSSIL - Gold Accent Watch', 5999, 'https://images.unsplash.com/photo-1533139502658-0198f920d8e8?auto=format&fit=crop&w=400&q=80')">ADD TO BAG</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="watch" data-name="sport rugged digital watch">
+                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=400&q=80" alt="Digital Watch">
+                <div class="product-details">
+                    <h3>CASIO</h3>
+                    <p>Sport Rugged Digital Watch</p>
+                    <span class="price">Rs. 2,199 <del>Rs. 4,299</del></span>
+                    <button class="shop-now-btn add-bag-btn" onclick="addToCart('CASIO - Rugged Digital Watch', 2199, 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=400&q=80')">ADD TO BAG</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER WITH ANCHOR TAGS -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>NAVIGATION</h4>
+                <a href="index.html">Home</a>
+                <a href="collections.html">Collections</a>
+                <a href="cart.html">Cart</a>
+                <a href="orders.html">Orders</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+            <div class="footer-col">
+                <h4>CUSTOMER POLICIES</h4>
+                <a href="contact.html">Contact Us</a>
+                <a href="#">FAQ & Support</a>
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Shipping Policy</a>
+            </div>
+            <div class="footer-col">
+                <h4>EXPERIENCE NOSTRA</h4>
+                <p style="font-size: 13px; color: #696e79; margin-bottom: 10px;">100% ORIGINAL guarantee for all fashion products at Nostra.</p>
+                <div class="social-icons">
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                </div>
+            </div>
+        </div>
+        <hr style="border: none; border-top: 1px solid #d4d5d9; margin: 20px 0;">
+        <div class="footer-bottom">
+            <p>© 2026 NOSTRA. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

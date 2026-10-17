@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nostra - My Orders</title>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="loadOrdersPage()">
+
+    <!-- NAVBAR SECTION -->
+    <header class="navbar">
+        <button type="button" class="menu-toggle-btn" aria-label="Open navigation" aria-controls="mobile-sidebar" aria-expanded="false" onclick="toggleSidebar(true)">☰</button>
+        <div class="nav-logo">
+            <a href="index.html"><span class="brand-mark" aria-hidden="true"><svg class="brand-dress" viewBox="0 0 24 24" focusable="false"><path d="M9 2h6l1.2 5 3.4 2.8-2 3.6-2.1-1L17 22H7l1.5-9.6-2.1 1-2-3.6L7.8 7 9 2z"/></svg></span>Nostra</a>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="collections.html">Collections</a>
+            <a href="cart.html">Cart</a>
+            <a href="orders.html" class="active">Orders</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+        <div class="nav-actions">
+            <div class="search-bar">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search for products, brands and more">
+            </div>
+            <div class="icon-actions">
+                <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i><span id="bag-count">Bag</span></a>
+            </div>
+        </div>
+    </header>
+    <aside class="mobile-sidebar" id="mobile-sidebar" aria-hidden="true">
+        <div class="sidebar-header">
+            <h3>Nostra</h3>
+            <button type="button" class="close-sidebar-btn" aria-label="Close navigation" onclick="toggleSidebar(false)">&times;</button>
+        </div>
+        <nav class="sidebar-links">
+            <a href="index.html"><i class="fa-solid fa-house"></i>Home</a>
+            <a href="collections.html"><i class="fa-solid fa-layer-group"></i>Collections</a>
+            <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i>Cart</a>
+            <a href="orders.html"><i class="fa-solid fa-box"></i>Orders</a>
+            <a href="contact.html"><i class="fa-solid fa-envelope"></i>Contact Us</a>
+        </nav>
+    </aside>
+    <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleSidebar(false)" aria-hidden="true"></div>
+
+    <!-- ORDERS SECTION -->
+    <section class="section-container">
+        <h2 class="section-title">MY ORDERS</h2>
+        <div class="orders-container" id="orders-container-main" style="max-width: 900px; margin: auto;">
+            <!-- Orders will load dynamically here using JavaScript -->
+        </div>
+    </section>
+
+    <!-- FOOTER WITH ANCHOR TAGS -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>NAVIGATION</h4>
+                <a href="index.html">Home</a>
+                <a href="collections.html">Collections</a>
+                <a href="cart.html">Cart</a>
+                <a href="orders.html">Orders</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+            <div class="footer-col">
+                <h4>CUSTOMER POLICIES</h4>
+                <a href="contact.html">Contact Us</a>
+                <a href="#">FAQ & Support</a>
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Shipping Policy</a>
+            </div>
+            <div class="footer-col">
+                <h4>EXPERIENCE NOSTRA</h4>
+                <p style="font-size: 13px; color: #696e79; margin-bottom: 10px;">100% ORIGINAL guarantee for all fashion products at Nostra.</p>
+                <div class="social-icons">
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                </div>
+            </div>
+        </div>
+        <hr style="border: none; border-top: 1px solid #d4d5d9; margin: 20px 0;">
+        <div class="footer-bottom">
+            <p>© 2026 NOSTRA. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nostra - Online Shopping for Women, Men & Kids Fashion</title>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Exact Myntra Banner Slider Styles */
+        .myntra-carousel {
+            position: relative;
+            width: 100%;
+            height: 420px;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-top: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .carousel-track {
+            display: flex;
+            width: 300%;
+            height: 100%;
+            transition: transform 0.6s ease-in-out;
+        }
+        .carousel-slide {
+            width: 33.333%;
+            height: 100%;
+            position: relative;
+        }
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .carousel-content {
+            position: absolute;
+            bottom: 40px;
+            left: 60px;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        .carousel-content h1 {
+            font-size: 38px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        .carousel-content p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        /* Round Category Circles Section */
+        .round-categories {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 20px 0;
+            margin: 20px 0;
+        }
+        .category-circle-item {
+            text-align: center;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .category-circle-item img {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent-color);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        .category-circle-item img:hover {
+            transform: scale(1.05);
+        }
+        .category-circle-item p {
+            margin-top: 8px;
+            font-size: 14px;
+            font-weight: 700;
+            color: #282c3f;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR SECTION -->
+    <header class="navbar">
+        <button type="button" class="menu-toggle-btn" aria-label="Open navigation" aria-controls="mobile-sidebar" aria-expanded="false" onclick="toggleSidebar(true)">☰</button>
+        <div class="nav-logo">
+            <a href="index.html"><span class="brand-mark" aria-hidden="true"><svg class="brand-dress" viewBox="0 0 24 24" focusable="false"><path d="M9 2h6l1.2 5 3.4 2.8-2 3.6-2.1-1L17 22H7l1.5-9.6-2.1 1-2-3.6L7.8 7 9 2z"/></svg></span>Nostra</a>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="collections.html">Collections</a>
+            <a href="cart.html">Cart</a>
+            <a href="orders.html">Orders</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+        <div class="nav-actions">
+            <div class="search-bar">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="search-input" placeholder="Search for products, brands and more">
+            </div>
+            <div class="icon-actions">
+                <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i><span id="bag-count">Bag</span></a>
+            </div>
+        </div>
+    </header>
+    <aside class="mobile-sidebar" id="mobile-sidebar" aria-hidden="true">
+        <div class="sidebar-header">
+            <h3>Nostra</h3>
+            <button type="button" class="close-sidebar-btn" aria-label="Close navigation" onclick="toggleSidebar(false)">&times;</button>
+        </div>
+        <nav class="sidebar-links">
+            <a href="index.html"><i class="fa-solid fa-house"></i>Home</a>
+            <a href="collections.html"><i class="fa-solid fa-layer-group"></i>Collections</a>
+            <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i>Cart</a>
+            <a href="orders.html"><i class="fa-solid fa-box"></i>Orders</a>
+            <a href="contact.html"><i class="fa-solid fa-envelope"></i>Contact Us</a>
+        </nav>
+    </aside>
+    <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleSidebar(false)" aria-hidden="true"></div>
+
+    <!-- MYNTRA STYLE CAROUSEL BANNER SECTION -->
+    <section class="section-container" style="padding: 10px 40px;">
+        <div class="myntra-carousel">
+            <div class="carousel-track" id="carouselTrack">
+                
+                <!-- Slide 1 -->
+                <div class="carousel-slide">
+                    <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1400&q=80" alt="Banner 1">
+                    <div class="carousel-content">
+                        <h1>FLAT 50% OFF</h1>
+                        <p>End of Reason Sale on All Trendy Collections</p>
+                        <a href="collections.html" class="shop-now-btn" style="width: 160px; padding: 10px 20px; display: inline-block; text-align: center;">SHOP NOW</a>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="carousel-slide">
+                    <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=1400&q=80" alt="Banner 2">
+                    <div class="carousel-content">
+                        <h1>NEW ETHNIC WEAR</h1>
+                        <p>Explore Stunning Kurtis, Sarees & Lehengas</p>
+                        <a href="collections.html" class="shop-now-btn" style="width: 160px; padding: 10px 20px; display: inline-block; text-align: center;">EXPLORE</a>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="carousel-slide">
+                    <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1400&q=80" alt="Banner 3">
+                    <div class="carousel-content">
+                        <h1>SUMMER FOOTWEAR</h1>
+                        <p>Step Out in Style with Premium Sneakers & Shoes</p>
+                        <a href="collections.html" class="shop-now-btn" style="width: 160px; padding: 10px 20px; display: inline-block; text-align: center;">DISCOVER</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!---products-->
+      <section class="section-container">
+        <h2 class="section-title">FEATURED PRODUCTS</h2>
+        <div class="product-grid">
+            
+            <div class="product-card" data-category="shirt" data-name="solid cotton casual shirt">
+                <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=400&q=80" alt="Shirt">
+                <div class="product-details">
+                    <h3>Nostra Men</h3>
+                    <p>Solid Cotton Casual Shirt</p>
+                    <span class="price">Rs. 799 <del>Rs. 1,499</del></span>
+                    <button class="shop-now-btn" onclick="addToCart('Nostra Men - Solid Cotton Casual Shirt', 799, 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=400&q=80')">ADD TO BAG</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="dress" data-name="floral printed maxi dress">
+                <img src="https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&w=400&q=80" alt="Dress">
+                <div class="product-details">
+                    <h3>HER NOSTRA</h3>
+                    <p>Floral Printed Maxi Dress</p>
+                    <span class="price">Rs. 1,299 <del>Rs. 2,499</del></span>
+                    <button class="shop-now-btn" onclick="addToCart('HER NOSTRA - Floral Maxi Dress', 1299, 'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&w=400&q=80')">ADD TO BAG</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="shoes" data-name="active running sports shoes">
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=400&q=80" alt="Shoes">
+                <div class="product-details">
+                    <h3>ROSTER</h3>
+                    <p>Active Running Sports Shoes</p>
+                    <span class="price">Rs. 1,999 <del>Rs. 3,999</del></span>
+                    <button class="shop-now-btn" onclick="addToCart('ROSTER - Active Sports Shoes', 1999, 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=400&q=80')">ADD TO BAG</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="watch" data-name="chronograph analog watch">
+                <img src="https://images.unsplash.com/photo-1548883354-7622d03aca27?auto=format&fit=crop&w=400&q=80" alt="Watch">
+                <div class="product-details">
+                    <h3>TIMEWEAR</h3>
+                    <p>Chronograph Analog Watch</p>
+                    <span class="price">Rs. 1,499 <del>Rs. 2,999</del></span>
+                    <button class="shop-now-btn" onclick="addToCart('TIMEWEAR - Analog Watch', 1499, 'https://images.unsplash.com/photo-1548883354-7622d03aca27?auto=format&fit=crop&w=400&q=80')">ADD TO BAG</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- ROUND CATEGORIES SECTION (Men, Women, Kids, Beauty, etc.) -->
+    <section class="section-container" style="padding-top: 10px; padding-bottom: 10px;">
+        <h2 class="section-title">SHOP BY CATEGORY</h2>
+        <div class="round-categories">
+            <a href="collections.html" class="category-circle-item">
+                <img src="https://images.unsplash.com/photo-1516826957135-700dedea698c?auto=format&fit=crop&w=300&q=80" alt="Men">
+                <p>Men</p>
+            </a>
+            <a href="collections.html" class="category-circle-item">
+                <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=300&q=80" alt="Women">
+                <p>Women</p>
+            </a>
+            <a href="collections.html" class="category-circle-item">
+                <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=300&q=80" alt="Kids">
+                <p>Kids</p>
+            </a>
+            <a href="collections.html" class="category-circle-item">
+                <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=300&q=80" alt="Beauty">
+                <p>Beauty</p>
+            </a>
+            <a href="collections.html" class="category-circle-item">
+                <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=300&q=80" alt="Living">
+                <p>Home & Living</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- PROMOTIONAL POSTER SECTION -->
+    <section class="section-container" style="padding-top: 10px;">
+        <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08); height: 280px; position: relative;">
+            <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=1400&q=80" alt="Promo Poster" style="width: 100%; height: 260px; object-fit: cover;">
+            <div style="position: absolute; bottom: 30px; left: 40px; color: white; text-shadow: 0 2px 5px rgba(0,0,0,0.6);">
+                <h3 style="font-size: 28px; font-weight: 800; margin-bottom: 5px;">GRAND FESTIVE COLLECTION</h3>
+                <p style="font-size: 15px; margin-bottom: 15px;">Minimum 60% OFF on Top Designer Wear</p>
+                <a href="collections.html" class="shop-now-btn" style="width: 140px; padding: 8px 15px; display: inline-block; text-align: center; font-size: 13px;">EXPLORE NOW</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED PRODUCTS SECTION -->
+    <section class="section-container">
+        <h2 class="section-title">FEATURED PRODUCTS</h2>
+        <div class="product-grid">
+            
+            <div class="product-card" data-category="shirt" data-name="solid cotton casual shirt">
+                <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=400&q=80" alt="Shirt">
+                <div class="product-details">
+                    <h3>Nostra Men</h3>
+                    <p>Solid Cotton Casual Shirt</p>
+                    <span class="price">Rs. 799 <del>Rs. 1,499</del></span>
+                    <button class="shop-now-btn" onclick="addToCart('Nostra Men - Solid Cotton Casual Shirt', 799, 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=400&q=80')">ADD TO BAG</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="dress" data-name="floral printed maxi dress">
+                <img src="https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&w=400&q=80" alt="Dress">
+                <div class="product-details">
+                    <h3>HER NOSTRA</h3>
+                    <p>Floral Printed Maxi Dress</p>
+                    <span class="price">Rs. 1,299 <del>Rs. 2,499</del></span>
+                    <button class="shop-now-btn" onclick="addToCart('HER NOSTRA - Floral Maxi Dress', 1299, 'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&w=400&q=80')">ADD TO BAG</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="shoes" data-name="active running sports shoes">
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=400&q=80" alt="Shoes">
+                <div class="product-details">
+                    <h3>ROSTER</h3>
+                    <p>Active Running Sports Shoes</p>
+                    <span class="price">Rs. 1,999 <del>Rs. 3,999</del></span>
+                    <button class="shop-now-btn" onclick="addToCart('ROSTER - Active Sports Shoes', 1999, 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=400&q=80')">ADD TO BAG</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="watch" data-name="chronograph analog watch">
+                <img src="https://images.unsplash.com/photo-1548883354-7622d03aca27?auto=format&fit=crop&w=400&q=80" alt="Watch">
+                <div class="product-details">
+                    <h3>TIMEWEAR</h3>
+                    <p>Chronograph Analog Watch</p>
+                    <span class="price">Rs. 1,499 <del>Rs. 2,999</del></span>
+                    <button class="shop-now-btn" onclick="addToCart('TIMEWEAR - Analog Watch', 1499, 'https://images.unsplash.com/photo-1548883354-7622d03aca27?auto=format&fit=crop&w=400&q=80')">ADD TO BAG</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER WITH ANCHOR TAGS -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>ONLINE SHOPPING</h4>
+                <a href="collections.html">Men</a>
+                <a href="collections.html">Women</a>
+                <a href="collections.html">Kids</a>
+                <a href="collections.html">Home & Living</a>
+                <a href="collections.html">Beauty</a>
+            </div>
+            <div class="footer-col">
+                <h4>CUSTOMER POLICIES</h4>
+                <a href="contact.html">Contact Us</a>
+                <a href="#">FAQ & Support</a>
+                <a href="#">Terms & Conditions</a>
+                <a href="orders.html">Track Orders</a>
+                <a href="#">Shipping Policy</a>
+            </div>
+            <div class="footer-col">
+                <h4>EXPERIENCE NOSTRA</h4>
+                <p style="font-size: 13px; color: #696e79; margin-bottom: 10px;">100% ORIGINAL guarantee for all fashion products at Nostra.</p>
+                <div class="social-icons">
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                    <i class="fa-brands fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+        <hr style="border: none; border-top: 1px solid #d4d5d9; margin: 20px 0;">
+        <div class="footer-bottom">
+            <p>© 2026 NOSTRA. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Myntra Smooth Sliding Carousel Script -->
+    <script>
+        const track = document.getElementById('carouselTrack');
+        let slideIndex = 0;
+
+        function moveCarousel() {
+            slideIndex = (slideIndex + 1) % 3;
+            track.style.transform = `translateX(-${slideIndex * 33.333}%)`;
+        }
+
+        setInterval(moveCarousel, 3500); // Changes banner every 3.5 seconds smoothly
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
